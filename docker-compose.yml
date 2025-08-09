@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  yt-summary:
+    build: .
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./videos:/app/videos
+      - ./.env:/app/.env:ro
+    stdin_open: true
+    tty: true
+    command: /bin/bash
